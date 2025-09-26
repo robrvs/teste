@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roberval Valencia - Portfólio</title>
+    <title>Biblioteca de Documentos PDF</title>
     <style>
         * {
             margin: 0;
@@ -12,210 +12,192 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            color: #333;
-            overflow-x: hidden;
+            padding: 20px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
         }
 
-        header {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-        }
-
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        main {
-            padding-top: 80px;
-        }
-
-        .hero {
+        h1 {
             text-align: center;
-            padding: 5rem 0;
             color: white;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-        }
-
-        .section {
-            padding: 4rem 0;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .card:hover {
-            transform: translateY(-10px) rotate(1deg);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-        }
-
-        .card h3 {
-            color: #764ba2;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .card p {
-            line-height: 1.6;
-            color: #666;
-        }
-
-        .about {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 3rem 0;
-            color: white;
-            text-align: center;
-        }
-
-        .about h2 {
             font-size: 2.5rem;
             margin-bottom: 2rem;
-            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideDown 0.6s ease-out;
         }
 
-        .about p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto;
+        .tree {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        .category {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            animation: fadeInUp 0.6s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .category-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .category.collapsed .category-icon {
+            transform: rotate(-90deg);
+        }
+
+        .subcategory {
+            margin: 15px 0;
+            padding-left: 30px;
+            border-left: 3px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .subcategory-title {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .pdf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .pdf-card {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
             overflow: hidden;
-            z-index: -1;
         }
 
-        .shape {
+        .pdf-card::before {
+            content: '';
             position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
         }
 
-        .shape:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            left: 10%;
-            top: 20%;
-            animation-delay: 0s;
+        .pdf-card:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
-        .shape:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            right: 10%;
-            top: 60%;
-            animation-delay: 2s;
+        .pdf-icon {
+            font-size: 2rem;
+            color: #dc3545;
+            margin-bottom: 10px;
         }
 
-        .shape:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            left: 70%;
-            top: 10%;
-            animation-delay: 4s;
+        .pdf-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.4;
         }
 
-        footer {
-            background: rgba(0, 0, 0, 0.2);
+        .pdf-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .pdf-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 25px;
+            background: rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .pdf-link:hover {
+            background: #667eea;
             color: white;
+            transform: translateX(5px);
+        }
+
+        .category-content {
+            max-height: 2000px;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .category.collapsed .category-content {
+            max-height: 0;
+        }
+
+        .stats {
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 4rem;
+            margin-bottom: 30px;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .search-container {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .search-box {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            outline: none;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.95);
+        }
+
+        .search-box:focus {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
         @keyframes fadeInUp {
@@ -229,149 +211,343 @@
             }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hidden {
+            display: none !important;
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .cards {
+            .pdf-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .category {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
+    <div class="container">
+        <h1>📚 Biblioteca de Documentos PDF</h1>
+        
+        <div class="stats">
+            <span id="totalDocs">Total: 15 documentos</span> • 
+            <span id="totalCategories">5 categorias</span>
+        </div>
+
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="🔍 Pesquisar documentos..." id="searchInput">
+        </div>
+
+        <div class="tree">
+            <!-- Categoria: Manuais Técnicos -->
+            <div class="category">
+                <div class="category-title" onclick="toggleCategory(this)">
+                    <span class="category-icon">📋</span>
+                    <span>Manuais Técnicos</span>
+                </div>
+                <div class="category-content">
+                    <div class="subcategory">
+                        <div class="subcategory-title">Software</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-card">
+                                <div class="pdf-icon">📄</div>
+                                <div class="pdf-title">Manual do Usuário - Sistema ERP</div>
+                                <div class="pdf-description">Guia completo para utilização do sistema de gestão empresarial</div>
+                                <a href="#" class="pdf-link">
+                                    <span>Abrir PDF</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                            <div class="pdf-card">
+                                <div class="pdf-icon">📄</div>
+                                <div class="pdf-title">Guia de Instalação - Office 365</div>
+                                <div class="pdf-description">Passo a passo para instalação e configuração</div>
+                                <a href="#" class="pdf-link">
+                                    <span>Abrir PDF</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subcategory">
+                        <div class="subcategory-title">Hardware</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-card">
+                                <div class="pdf-icon">📄</div>
+                                <div class="pdf-title">Manual de Manutenção - Servidores</div>
+                                <div class="pdf-description">Procedimentos de manutenção preventiva e corretiva</div>
+                                <a href="#" class="pdf-link">
+                                    <span>Abrir PDF</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoria: Documentação Legal -->
+            <div class="category">
+                <div class="category-title" onclick="toggleCategory(this)">
+                    <span class="category-icon">⚖️</span>
+                    <span>Documentação Legal</span>
+                </div>
+                <div class="category-content">
+                    <div class="subcategory">
+                        <div class="subcategory-title">Contratos</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-card">
+                                <div class="pdf-icon">📄</div>
+                                <div class="pdf-title">Contrato de Trabalho - Modelo</div>
+                                <div class="pdf-description">Modelo padrão para contratos de trabalho CLT</div>
+                                <a href="#" class="pdf-link">
+                                    <span>Abrir PDF</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                            <div class="pdf-card">
+                                <div class="pdf-icon">📄</div>
+                                <div class="pdf-title">Contrato de Prestação de Serviços</div>
+                                <div class="pdf-description">Modelo para contratos de prestação de serviços</div>
+                                <a href="#" class="pdf-link">
+                                    <span>Abrir PDF</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subcategory">
+                        <div class="subcategory-title">Políticas</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-card">
+                                <div class="pdf-icon">📄</div>
+                                <div class="pdf-title">Política de Privacidade LGPD</div>
+                                <div class="pdf-description">Documento de conformidade com a Lei Geral de Proteção de Dados</div>
+                                <a href="#" class="pdf-link">
+                                    <span>Abrir PDF</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoria: Relatórios Financeiros -->
+            <div class="category">
+                <div class="category-title" onclick="toggleCategory(this)">
+                    <span class="category-icon">💰</span>
+                    <span>Relatórios Financeiros</span>
+                </div>
+                <div class="category-content">
+                    <div class="subcategory">
+                        <div class="subcategory-title">Relatórios Mensais</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-card">
+                                <div class="pdf-icon">📄</div>
+                                <div class="pdf-title">Relatório Financeiro - Setembro 2025</div>
+                                <div class="pdf-description">Demonstrativo financeiro do mês de setembro</div>
+                                <a href="#" class="pdf-link">
+                                    <span>Abrir PDF</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                            <div class="pdf-card">
+                                <div class="pdf-icon">📄</div>
+                                <div class="pdf-title">Relatório Financeiro - Agosto 2025</div>
+                                <div class="pdf-description">Demonstrativo financeiro do mês de agosto</div>
+                                <a href="#" class="pdf-link">
+                                    <span>Abrir PDF</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subcategory">
+                        <div class="subcategory-title">Balanços</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-card">
+                                <div class="pdf-icon">📄</div>
+                                <div class="pdf-title">Balanço Patrimonial 2024</div>
+                                <div class="pdf-description">Balanço patrimonial completo do exercício 2024</div>
+                                <a href="#" class="pdf-link">
+                                    <span>Abrir PDF</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoria: Recursos Humanos -->
+            <div class="category">
+                <div class="category-title" onclick="toggleCategory(this)">
+                    <span class="category-icon">👥</span>
+                    <span>Recursos Humanos</span>
+                </div>
+                <div class="category-content">
+                    <div class="subcategory">
+                        <div class="subcategory-title">Treinamentos</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-card">
+                                <div class="pdf-icon">📄</div>
+                                <div class="pdf-title">Programa de Integração</div>
+                                <div class="pdf-description">Material de treinamento para novos funcionários</div>
+                                <a href="#" class="pdf-link">
+                                    <span>Abrir PDF</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                            <div class="pdf-card">
+                                <div class="pdf-icon">📄</div>
+                                <div class="pdf-title">Treinamento de Segurança</div>
+                                <div class="pdf-description">Normas e procedimentos de segurança no trabalho</div>
+                                <a href="#" class="pdf-link">
+                                    <span>Abrir PDF</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subcategory">
+                        <div class="subcategory-title">Procedimentos</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-card">
+                                <div class="pdf-icon">📄</div>
+                                <div class="pdf-title">Manual de Procedimentos RH</div>
+                                <div class="pdf-description">Procedimentos internos do departamento de recursos humanos</div>
+                                <a href="#" class="pdf-link">
+                                    <span>Abrir PDF</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoria: Projetos -->
+            <div class="category">
+                <div class="category-title" onclick="toggleCategory(this)">
+                    <span class="category-icon">🚀</span>
+                    <span>Projetos</span>
+                </div>
+                <div class="category-content">
+                    <div class="subcategory">
+                        <div class="subcategory-title">Propostas</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-card">
+                                <div class="pdf-icon">📄</div>
+                                <div class="pdf-title">Proposta Projeto Alpha</div>
+                                <div class="pdf-description">Proposta comercial para desenvolvimento do sistema Alpha</div>
+                                <a href="#" class="pdf-link">
+                                    <span>Abrir PDF</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                            <div class="pdf-card">
+                                <div class="pdf-icon">📄</div>
+                                <div class="pdf-title">Proposta Projeto Beta</div>
+                                <div class="pdf-description">Proposta para implementação da plataforma Beta</div>
+                                <a href="#" class="pdf-link">
+                                    <span>Abrir PDF</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subcategory">
+                        <div class="subcategory-title">Documentação</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-card">
+                                <div class="pdf-icon">📄</div>
+                                <div class="pdf-title">Especificações Técnicas - Projeto Alpha</div>
+                                <div class="pdf-description">Documentação técnica detalhada do projeto</div>
+                                <a href="#" class="pdf-link">
+                                    <span>Abrir PDF</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <header>
-        <nav class="container">
-            <div class="logo">Roberval Valencia</div>
-            <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <h1>Roberval Valencia</h1>
-                <p>Transformando ideias em realidade digital</p>
-                <a href="#sobre" class="cta-button">Conheça meu trabalho</a>
-            </div>
-        </section>
-
-        <section id="sobre" class="section">
-            <div class="container">
-                <div class="about">
-                    <h2>Sobre Mim</h2>
-                    <p>
-                        Olá! Sou Roberval Valencia, um profissional dedicado e apaixonado por criar 
-                        soluções inovadoras. Com experiência em diversas áreas, busco sempre a 
-                        excelência em cada projeto que desenvolvo. Minha abordagem combina 
-                        criatividade, técnica e uma visão estratégica para entregar resultados 
-                        excepcionais que superam expectativas.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="projetos" class="section">
-            <div class="container">
-                <div class="cards">
-                    <div class="card">
-                        <h3>Desenvolvimento Web</h3>
-                        <p>
-                            Criação de websites modernos e responsivos, com foco na experiência 
-                            do usuário e performance otimizada. Utilizando as melhores práticas 
-                            e tecnologias mais atuais do mercado.
-                        </p>
-                    </div>
-                    <div class="card">
-                        <h3>Design & UX</h3>
-                        <p>
-                            Design centrado no usuário, criando interfaces intuitivas e 
-                            visualmente atrativas. Cada elemento é pensado para proporcionar 
-                            a melhor experiência possível.
-                        </p>
-                    </div>
-                    <div class="card">
-                        <h3>Consultoria Digital</h3>
-                        <p>
-                            Estratégias digitais personalizadas para impulsionar seu negócio. 
-                            Análise completa e soluções sob medida para alcançar seus objetivos 
-                            no mundo digital.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer id="contato">
-        <div class="container">
-            <p>&copy; 2025 Roberval Valencia. Todos os direitos reservados.</p>
-            <p>Entre em contato para discutir seu próximo projeto!</p>
-        </div>
-    </footer>
-
     <script>
-        // Smooth scrolling para os links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        function toggleCategory(element) {
+            const category = element.parentElement;
+            category.classList.toggle('collapsed');
+        }
 
-        // Efeito parallax nas formas flutuantes
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const shapes = document.querySelectorAll('.shape');
+        // Funcionalidade de pesquisa
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const categories = document.querySelectorAll('.category');
             
-            shapes.forEach((shape, index) => {
-                const speed = (index + 1) * 0.2;
-                shape.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
-
-        // Animação das cartas ao entrar na viewport
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+            categories.forEach(category => {
+                const cards = category.querySelectorAll('.pdf-card');
+                let hasVisibleCards = false;
+                
+                cards.forEach(card => {
+                    const title = card.querySelector('.pdf-title').textContent.toLowerCase();
+                    const description = card.querySelector('.pdf-description').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                        card.classList.remove('hidden');
+                        hasVisibleCards = true;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+                
+                // Se há termo de pesquisa e nenhum card visível, oculta a categoria
+                if (searchTerm && !hasVisibleCards) {
+                    category.classList.add('hidden');
+                } else {
+                    category.classList.remove('hidden');
+                    // Expande categoria se há pesquisa ativa
+                    if (searchTerm) {
+                        category.classList.remove('collapsed');
+                    }
                 }
             });
         });
 
-        document.querySelectorAll('.card').forEach((card) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(50px)';
-            card.style.transition = 'all 0.6s ease';
-            observer.observe(card);
+        // Adicionar animação em cascata aos cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.pdf-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.style.animation = 'fadeInUp 0.6s ease-out forwards';
+            });
+        });
+
+        // Simulação de clique nos links PDF
+        document.querySelectorAll('.pdf-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const title = this.closest('.pdf-card').querySelector('.pdf-title').textContent;
+                alert(`Abrindo: ${title}`);
+            });
         });
     </script>
 </body>
